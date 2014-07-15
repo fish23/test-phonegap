@@ -34,7 +34,6 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        device = (isDevice === true) ? new Device() : new Desktop();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -44,7 +43,7 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-        device.notificationAlert("Hello - Device is Ready!");
+        navigator.notification.alert("Hello - Device is Ready!", app.blankEvent);
         console.log('Received Event: ' + id);
     },
     blankEvent: function() {
