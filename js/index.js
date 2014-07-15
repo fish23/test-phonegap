@@ -45,5 +45,8 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
         device.notificationAlert("Hello - Device is Ready!");
         console.log('Received Event: ' + id);
+    },
+    blankEvent: function() {
+        return;
     }
 };
