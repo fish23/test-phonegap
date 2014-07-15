@@ -17,6 +17,7 @@
  * under the License.
  */
 var app = {
+    isReady: false,
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -43,6 +44,7 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
+        app.isReady = true;
         navigator.notification.alert("Hello - Device is Ready!", app.blankEvent);
         console.log('Received Event: ' + id);
     },
