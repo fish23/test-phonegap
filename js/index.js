@@ -20,8 +20,6 @@ var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
-        
-        device.notificationAlert("Hello!");
     },
     // Bind Event Listeners
     //
@@ -45,7 +43,7 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
-
+        device.notificationAlert("Hello - Device is Ready!");
         console.log('Received Event: ' + id);
     }
 };
