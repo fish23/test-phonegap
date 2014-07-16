@@ -3,7 +3,7 @@ var photo = {
     {
         navigator.camera.getPicture(photo.success, photo.error, {
             quality: 85, 
-            destinationType: Camera.DestinationType.DATA_URL,
+            destinationType: Camera.DestinationType.FILE_URI,
             encodingType: Camera.EncodingType.JPEG,
             mediaType: Camera.MediaType.PICTURE,
             allowEdit : true,
@@ -14,7 +14,7 @@ var photo = {
     {
         navigator.notification.alert("Photo has been successfully retrived!", app.blankEvent);
         var imgPhoto = document.getElementById('img-photo');
-        imgPhoto.src = 'data:image/jpeg;base64,' + imageData;
+        imgPhoto.src = imageData;
         imgPhoto.style.display = 'block';
 
     },
