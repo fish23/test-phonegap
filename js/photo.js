@@ -13,7 +13,7 @@ var photo = {
     success: function(imageData)
     {
         navigator.notification.alert("Photo has been successfully retrived!", app.blankEvent);
-        window.resolveLocalFileSystemURI(imageData, photo.place, photo.error);
+        window.resolveLocalFileSystemURL(imageData, photo.place, photo.error);
 
     },
     error: function()
@@ -26,8 +26,7 @@ var photo = {
     place: function(fileEntry)
     {
         var imgPhoto = document.getElementById('img-photo');
-        console.log('fish');
-        console.log(fileEntry);
+        console.log('fish', fileEntry.fullPath);
         imgPhoto.src = fileEntry.fullPath;
         imgPhoto.style.display = 'block';
         
