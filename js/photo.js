@@ -14,9 +14,14 @@ var photo = {
         navigator.notification.alert("Photo has been successfully retrived!", app.blankEvent);
         var imgPhoto = document.getElementById('img-photo');
         imgPhoto.src = imageData;
+        imgPhoto.style.display = 'block';
+
     },
     error: function()
     {
         navigator.notification.alert("Unable to get Photo!", app.blankEvent);
+        var imgPhoto = document.getElementById('img-photo');
+        imgPhoto.src = '';
+        imgPhoto.style.display = 'none';
     }
 }
