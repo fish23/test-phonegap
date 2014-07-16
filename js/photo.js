@@ -14,6 +14,8 @@ var photo = {
     {
         navigator.notification.alert("Photo has been successfully retrived!", app.blankEvent);
         var imgPhoto = document.getElementById('img-photo');
+        console.log('fish');
+        console.log(imageData);
         imgPhoto.src = imageData;
         imgPhoto.style.display = 'block';
 
