@@ -13,11 +13,7 @@ var photo = {
     success: function(imageData)
     {
         navigator.notification.alert("Photo has been successfully retrived!", app.blankEvent);
-        var imgPhoto = document.getElementById('img-photo');
-        console.log('fish');
-        console.log(imageData);
-        imgPhoto.src = imageData;
-        imgPhoto.style.display = 'block';
+        window.resolveLocalFileSystemURI(imageData, photo.place, photo.error);
 
     },
     error: function()
@@ -26,5 +22,14 @@ var photo = {
         var imgPhoto = document.getElementById('img-photo');
         imgPhoto.src = '';
         imgPhoto.style.display = 'none';
+    },
+    place: function(fileEntry)
+    {
+        var imgPhoto = document.getElementById('img-photo');
+        console.log('fish');
+        console.log(fileEntry);
+        imgPhoto.src = fileEntry.fullPath;
+        imgPhoto.style.display = 'block';
+        
     }
 }
