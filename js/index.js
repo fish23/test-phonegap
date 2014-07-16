@@ -47,6 +47,12 @@ var app = {
         app.isReady = true;
         navigator.notification.alert("Hello - Device is Ready!", app.blankEvent);
         console.log('Received Event: ' + id);
+        
+
+        if (window.device.platform === "iOS" && parseFloat(window.device.version) >= 7.0) {
+          var appElement = document.getElementById('app');
+          appElement.style.top = "20px";
+        }
     },
     blankEvent: function() {
         return;
