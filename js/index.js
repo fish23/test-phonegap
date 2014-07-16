@@ -52,6 +52,7 @@ var app = {
         if (window.device.platform === "iOS" && parseFloat(window.device.version) >= 7.0) {
           var appElement = document.getElementById('app');
           appElement.style.top = "20px";
+          appElement.style.background = "#123123";
         }
     },
     blankEvent: function() {
