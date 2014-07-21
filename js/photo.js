@@ -67,14 +67,14 @@ var photo = {
         }
         // overwrite original image
         context.putImageData(imageData, 0, 0);
-        context.globalCompositeOperation = "soft-light";
-        gradient = context.createLinearGradient(0, canvas.height, canvas.width, canvas.height);
-        gradient.addColorStop(0.000, 'rgba(255, 0, 0, 1.000)');
-        gradient.addColorStop(0.333, 'rgba(225, 255, 0, 1.000)');
-        gradient.addColorStop(0.666, 'rgba(0, 255, 17, 1.000)');
-        gradient.addColorStop(1.000, 'rgba(0, 55, 255, 1.000)');
-        context.fillStyle = gradient;
-        context.fillRect(0, 0, canvas.width, canvas.height);
+//        context.globalCompositeOperation = "soft-light";
+//        gradient = context.createLinearGradient(0, canvas.height, canvas.width, canvas.height);
+//        gradient.addColorStop(0.000, 'rgba(255, 0, 0, 1.000)');
+//        gradient.addColorStop(0.333, 'rgba(225, 255, 0, 1.000)');
+//        gradient.addColorStop(0.666, 'rgba(0, 255, 17, 1.000)');
+//        gradient.addColorStop(1.000, 'rgba(0, 55, 255, 1.000)');
+//        context.fillStyle = gradient;
+//        context.fillRect(0, 0, canvas.width, canvas.height);
     },
     error: function()
     {
