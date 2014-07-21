@@ -49,7 +49,7 @@ var photo = {
         context.drawImage(imgPhoto, 0, 0, canvasPhoto.width, canvasPhoto.height);
         photo.filter(imgPhoto, canvasPhoto, context);
         canvasPhoto.style.display = 'block';
-        //facebook.postCanvas(canvasPhoto);
+        facebook.postCanvas(canvasPhoto);
     },
     filter: function(image, canvas, context)
     {

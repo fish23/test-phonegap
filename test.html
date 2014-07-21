@@ -41,7 +41,8 @@ and open the template in the editor.
                 context.putImageData(imageData, 0, 0);
 
 
-                context.globalCompositeOperation = "soft-light";
+                //context.globalCompositeOperation = "soft-light";
+                context.globalCompositeOperation = "lighter";
                 gradient = context.createLinearGradient(0, canvas.height, canvas.width, canvas.height);
 
                 gradient.addColorStop(0.000, 'rgba(255, 0, 0, 1.000)');
