@@ -31,8 +31,8 @@ var photo = {
         navigator.notification.alert("Photo has been successfully retrived!", app.blankEvent);
         var imgPhoto = document.getElementById(photo.imgId);
         imgPhoto.src = 'data:image/jpeg;base64,' + imageData;
-        img.onload = photo.loaded;
-        if (img.complete) 
+        imgPhoto.onload = photo.loaded;
+        if (imgPhoto.complete) 
         {
             photo.loaded();
         }
