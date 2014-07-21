@@ -108,7 +108,11 @@
     <access origin="*" />
     <access origin="http://192.168.1.123" />
     <access origin="http://facebook.net" />
-    <access origin="http://facebook.com" />
+    <access origin="http://m.facebook.com" />
+    <access origin="http://graph.facebook.com" />
+    <access origin="http://api.facebook.com" />
+    <access origin="http://*.fbcdn.net" />
+    <access origin="http://*.akamaihd.net" />
     <access origin="http://connect.facebook.net" />
     <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
