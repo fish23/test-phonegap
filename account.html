@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>App</title>
+        <title>Offers</title>
 
         <meta name="format-detection" content="telephone=no" />
         <meta name="msapplication-tap-highlight" content="no" />
@@ -24,11 +24,9 @@
     </head>
   <body>
     <header class="bar bar-nav">
-      <a href="account.html" class="navigate-left" data-transition="slide-in">
+      <a href="index.html" class="navigate-right" data-transition="slide-out">
         <h1 class="title">
-          <span class="icon icon-person"></span>
-          <!-- Notes -->
-          <!-- <span class="icon icon-caret"></span> -->
+          <span class="icon icon-home"></span>
         </h1>
       </a>
     </header>
@@ -39,41 +37,48 @@
       <ul class="table-view">
 
         <li class="table-view-cell">
-            <h3>NEJBLIZSI STUDIO</h3>
-            <h3>BOMTON JALTA</h3>
-            <h5>VACLAVSKE NAMESTI 43,</h5>
-            <h5>110 00 PRAHA 1</h5>
+          <h3>DO ZISKANI ZLATEHO CLENSTVI ZBYVA</h3>
+          <h3>4500 Kc</h3>
+          <p>UTRACENO 20000 Kc</p>
         </li>
 
-        <a href="offers.html" class="navigate-left" data-transition="slide-in">
-            <li class="table-view-cell">
-                <h3>SPECIALNI NABIDKY</h3>
-                <p>3 nove zpravy</p>
-              </a>
-            </li>
-        </a>
-
-        <a href="news.html" class="navigate-left" data-transition="slide-in">
-            <li class="table-view-cell">
-                <h3>ZPRAVY</h3>
-                <p>8 novych</p>
-              </a>
-            </li>
-        </a>
+        <li class="table-view-cell">
+          <h3>ALENA NOVAKOVA</h3>
+          <h4>+420 777 121 212</h4>
+          <h4>novakova@gmail.com</h4>
+          <h4>BORIVOJOVA 123, PRAHA 3, 130 00</h4>
+        </li>
 
       </ul>
 
+      
+      <div class="bar bar-standard bar-footer">
+        <a href="account.html#accountEditModal">
+          <h2>UPRAVIT UDAJE</h2>
+        </a>
+      </div>
+
     </div>
 
-    <!-- Popover -->
-    <div id="navPopover" class="popover">
-      <ul class="table-view">
-        <li class="table-view-cell">Item1</li>
-        <li class="table-view-cell">Item2</li>
-        <li class="table-view-cell">Item3</li>
-        <li class="table-view-cell">Item4</li>
-      </ul>
-    </div>
+    <!-- Compose modal -->
+    <div id="accountEditModal" class="modal">
+      
+      <header class="bar bar-nav">
+        <a class="icon icon-left pull-left" href="account.html#accountEditModal"></a>
+        <h1 class="title">EDITACE UCTU</h1>
+      </header>
+
+      <div class="content">
+        <form class="content-padded">
+          <input type="text" value="Alena Novakova" placeholder="Jmeno a prijmeni">
+          <input type="text" value="novakova@gmail.com" placeholder="email">
+          <input type="text" value="Borivojova 123" placeholder="ulice">
+          <input type="text" value="Praha 3, 130 00" placeholder="mesto">
+          <a class="btn btn-positive btn-block" href="account.html#accountEditModal">UPRAVIT UDAJE</a>
+        </form>
+      </div>
+    </div><!-- /.modal -->
+
 
     <!-- on production version comment desktop.js -->
     <!-- <script type="text/javascript" src="js/desktop.js"></script> -->
