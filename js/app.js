@@ -1,7 +1,14 @@
+function appException(message) 
+{
+   this.message = message; 
+}
+
+
 var app = 
 {
     isReady: false,
     isLoggedIn: false,
+    isOnline: false,
     // Application Constructor
     initialize: function() 
     {
@@ -13,38 +20,13 @@ var app =
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() 
     {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() 
-    {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) 
-    {
-        app.isReady = true;
+        document.addEventListener('deviceready', events.onDeviceReady, false);
+        document.addEventListener('online', events.onOnline, false);
+        document.addEventListener('offline', events.onOffline, false);
 
-        if (window.device.platform === "iOS" && parseFloat(window.device.version) >= 7.0) 
-        {
-            // ...
-        }
-        //Resize canvas for EAN13
-        app.eanResize();
-        app.eanRender("9002236311036");
+        document.getElementById('login-button').addEventListener('touchstart', events.onLogin, false);
     },
-    blankEvent: function() 
-    {
-        return;
-    },
-    loginEvent: function(e)
-    {
-        
-    },
-    eanResize: function() 
+    eanResize: function()
     {
         var width  = window.innerWidth;
         var height = window.innerHeight;
@@ -78,6 +60,4 @@ var app =
     {
         $("#canvas-ean13").EAN13(code);
     }
-
-
 };

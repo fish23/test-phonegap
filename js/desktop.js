@@ -13,11 +13,9 @@ window.device = {
 //navigator.geolocation = { };
 //navigator.geolocation.getCurrentPosition(app.blankEvent, app.blankEvent);
 
-
-
-
 window.onload = function()
 {
-    app.receivedEvent(1);    
+    events.receivedEvent();
+    app.isOnline = true;
 }
 

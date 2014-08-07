@@ -1,14 +1,14 @@
 ajax = {
-    get: function(message)
+    get: function(message, successEvent)
     {
-        $.get("http://192.168.1.123", { message: message }).done(function(data) 
+        $.get("http://localhost", { message: message }).done(function(data) 
         {
             navigator.notification.alert( data, app.blankEvent );
         });
     },
-    post: function(message)
+    post: function(message, successEvent)
     {
-        $.post("http://192.168.1.123", { message: message }).done(function(data) 
+        $.post("http://localhost", { message: message }).done(function(data) 
         {
             navigator.notification.alert( data, app.blankEvent );
         });
