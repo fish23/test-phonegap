@@ -1,6 +1,7 @@
 var app = 
 {
     isReady: false,
+    isLoggedIn: false,
     // Application Constructor
     initialize: function() 
     {
@@ -38,6 +39,10 @@ var app =
     blankEvent: function() 
     {
         return;
+    },
+    loginEvent: function(e)
+    {
+        
     },
     eanResize: function() 
     {
