@@ -1,38 +1,78 @@
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'directory' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'directory.services' is found in services.js
-// 'directory.controllers' is found in controllers.js
-angular.module('directory', ['ionic', 'directory.services', 'directory.controllers'])
+var app = 
+{
+    isReady: false,
+    // Application Constructor
+    initialize: function() 
+    {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() 
+    {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() 
+    {
+        app.receivedEvent('deviceready');
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) 
+    {
+        app.isReady = true;
+
+        if (window.device.platform === "iOS" && parseFloat(window.device.version) >= 7.0) 
+        {
+            // ...
+        }
+        //Resize canvas for EAN13
+        app.eanResize();
+        app.eanRender("9002236311036");
+    },
+    blankEvent: function() 
+    {
+        return;
+    },
+    eanResize: function() 
+    {
+        var width  = window.innerWidth;
+        var height = window.innerHeight;
+
+        var widthCanvas;
+        var heightCanvas;
+        var padding;
+
+        if(width > height)
+        {
+            heightCanvas = Math.ceil(height / 4);
+            widthCanvas  = heightCanvas * 2;
+        }
+        else
+        {
+            widthCanvas  = Math.ceil(width * 0.7);
+            heightCanvas = Math.ceil(widthCanvas / 2);
+        }
+
+        padding = Math.ceil((width - widthCanvas) / 2);
+
+        var c = $("#canvas-ean13"), 
+        ctx = c[0].getContext('2d');
+        ctx.canvas.width  = widthCanvas;
+        ctx.canvas.height = heightCanvas;
+
+        $('#canvas-ean13').css("padding-left", padding+"px");
+        $('#canvas-ean13').css("padding-right", padding+"px");
+    },
+    eanRender: function(code)
+    {
+        $("#canvas-ean13").EAN13(code);
+    }
 
 
-    .config(function ($stateProvider, $urlRouterProvider) {
-
-        // Ionic uses AngularUI Router which uses the concept of states
-        // Learn more here: https://github.com/angular-ui/ui-router
-        // Set up the various states which the app can be in.
-        // Each state's controller can be found in controllers.js
-        $stateProvider
-
-            .state('employee-index', {
-                url: '/employees',
-                templateUrl: 'templates/employee-index.html',
-                controller: 'EmployeeIndexCtrl'
-            })
-
-            .state('employee-detail', {
-                url: '/employee/:employeeId',
-                templateUrl: 'templates/employee-detail.html',
-                controller: 'EmployeeDetailCtrl'
-            })
-
-            .state('employee-reports', {
-                url: '/employee/:employeeId/reports',
-                templateUrl: 'templates/employee-reports.html',
-                controller: 'EmployeeReportsCtrl'
-            });
-
-        // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/employees');
-
-    });
+};

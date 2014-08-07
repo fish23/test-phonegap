@@ -13,72 +13,230 @@
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="lib/ratchet/js/ratchet.min.js"></script>
+        <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="lib/jquery.mobile/jquery.mobile-1.4.3.min.js"></script>
+        <script type="text/javascript" src="lib/jquery.ean13/jquery-ean13.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="lib/ratchet/css/ratchet.min.css" />
-        <link rel="stylesheet" type="text/css" href="lib/ratchet/css/ratchet-theme-android.min.css" />
+        <link rel="stylesheet" type="text/css" href="lib/jquery.mobile/jquery.mobile-1.4.3.min.css" />
 
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <script type="text/javascript" src="cordova.js"></script>
     </head>
-  <body>
-    <header class="bar bar-nav">
-      <a href="account.html" class="navigate-left" data-transition="slide-in">
-        <h1 class="title">
-          <span class="icon icon-person"></span>
-          <!-- Notes -->
-          <!-- <span class="icon icon-caret"></span> -->
-        </h1>
-      </a>
-    </header>
+    <body>
 
+    <div data-role="page" id="home">
 
-    <div class="content">
+        <div data-role="header">
+            <a href="#account" data-transition="slide" class="ui-btn ui-shadow ui-corner-all ui-icon-star ui-btn-icon-notext">Account</a>
+            <h1>Title</h1>
+        </div>
 
-      <ul class="table-view">
+        <div data-role="main" class="ui-content">
 
-        <li class="table-view-cell">
-            <h3>NEJBLIZSI STUDIO</h3>
-            <h3>BOMTON JALTA</h3>
-            <h5>VACLAVSKE NAMESTI 43,</h5>
-            <h5>110 00 PRAHA 1</h5>
-        </li>
+            <ul class="ui-listview" data-role="listview">
 
-        <a href="offers.html" class="navigate-left" data-transition="slide-in">
-            <li class="table-view-cell">
-                <h3>SPECIALNI NABIDKY</h3>
-                <p>3 nove zpravy</p>
-              </a>
-            </li>
-        </a>
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3>NEJBLIZSI STUDIO</h3>
+                            <h3>BOMTON JALTA</h3>
+                            <h5>VACLAVSKE NAMESTI 43,</h5>
+                            <h5>110 00 PRAHA 1</h5>
+                        </div>
+                    </div>
+                </li>
 
-        <a href="news.html" class="navigate-left" data-transition="slide-in">
-            <li class="table-view-cell">
-                <h3>ZPRAVY</h3>
-                <p>8 novych</p>
-              </a>
-            </li>
-        </a>
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <a href="#offers" data-transition="slideup" class="ui-link-inherit">
+                                <h3 class="ui-li-heading">SPECIALNI NABIDKY</h3>
+                                <p class="ui-li-desc">3 nove zpravy</p>
+                            </a>
+                        </div>
+                    </div>
+                </li>
 
-      </ul>
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <a href="#news" data-transition="slideup" class="ui-link-inherit">
+                                <h3 class="ui-li-heading">ZPRAVY</h3>
+                                <p class="ui-li-desc">8 novych</p>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div> 
+
+    <div data-role="page" id="account">
+
+        <div data-role="header">
+            <a href="#home" data-transition="slide" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext">Home</a>
+            <h1>Title</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <ul class="ui-listview" data-role="listview">
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">DO ZISKANI ZLATEHO CLENSTVI ZBYVA</h3>
+                            <h3 class="ui-li-heading">4500 Kc</h3>
+                            <p class="ui-li-desc">UTRACENO 20 000 Kc</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">ALENA NOVAKOVA</h3>
+                            <h4 class="ui-li-heading">+420 777 121 212</h4>
+                            <h4>novakova@gmail.com</h4>
+                            <h4>BORIVOJOVA 123, PRAHA 3, 130 00</h4>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div data-role="footer">
+            <h1><a href="#home">UPRAVIT UDAJE</a></h1>
+        </div>
+    </div>
+
+    <div data-role="page" id="offers">
+
+        <div data-role="header">
+            <a href="#home" data-transition="slide" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext">Home</a>
+            <h1>Title</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <ul class="ui-listview" data-role="listview">
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">NEJNOVEJSI NABIDKA</h3>
+                            <p class="ui-li-desc">A JEJI RELATIVNE DLOUHY POPISEK<br />MOZNA CENA</p>
+                            <canvas id="canvas-ean13" width="1" height="1"></canvas>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">NEJNOVEJSI NABIDKA</h3>
+                            <p class="ui-li-desc">A JEJI RELATIVNE DLOUHY POPISEK<br />MOZNA CENA</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">NEJNOVEJSI NABIDKA</h3>
+                            <p class="ui-li-desc">A JEJI RELATIVNE DLOUHY POPISEK<br />MOZNA CENA</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">NEJNOVEJSI NABIDKA</h3>
+                            <p class="ui-li-desc">A JEJI RELATIVNE DLOUHY POPISEK<br />MOZNA CENA</p>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
 
     </div>
 
-    <!-- Popover -->
-    <div id="navPopover" class="popover">
-      <ul class="table-view">
-        <li class="table-view-cell">Item1</li>
-        <li class="table-view-cell">Item2</li>
-        <li class="table-view-cell">Item3</li>
-        <li class="table-view-cell">Item4</li>
-      </ul>
+    <div data-role="page" id="news">
+
+        <div data-role="header">
+            <a href="#home" data-transition="slide" class="ui-btn ui-shadow ui-corner-all ui-icon-home ui-btn-icon-notext">Home</a>
+            <h1>Title</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <ul class="ui-listview" data-role="listview">
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">ZPRAVA DNE</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur placerat faucibus vulputate. Donec vitae ligula nec nulla fermentum ultrices in et elit. Praesent aliquet nunc a neque suscipit imperdiet. Duis interdum libero sit amet justo convallis laoreet. Praesent dignissim rhoncus fermentum. Duis vel augue cursus, pellentesque leo lacinia, pulvinar massa. Phasellus eget lacus nulla. Aenean non nisi magna. In et orci vel dui ornare porta. Aliquam risus risus, lacinia vitae enim a, feugiat auctor lectus. In tempor tortor ut lobortis laoreet. Vestibulum posuere aliquet libero, non vulputate dui mollis ut. Etiam placerat mollis varius. Etiam pellentesque, eros ut viverra ultrices, tortor neque imperdiet sapien, facilisis adipiscing nisl orci ac velit. Suspendisse potenti Vestibulum vitae sem nulla. 
+                            </p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">ZPRAVA DNE</h3>
+                            <p class="ui-li-desc">A JEJI RELATIVNE DLOUHY POPISEK</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">ZPRAVA DNE</h3>
+                            <p class="ui-li-desc">A JEJI RELATIVNE DLOUHY POPISEK</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">ZPRAVA DNE</h3>
+                            <p class="ui-li-desc">A JEJI RELATIVNE DLOUHY POPISEK</p>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="ui-btn ui-li-has-arrow ui-li ui-btn-up" data-corners="false" data-shadow="false" data-wrapperels="div">
+                    <div class="ui-btn-inner ui-li">
+                        <div class="ui-btn-text">
+                            <h3 class="ui-li-heading">ZPRAVA DNE</h3>
+                            <p class="ui-li-desc">A JEJI RELATIVNE DLOUHY POPISEK</p>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
     </div>
 
     <!-- on production version comment desktop.js -->
     <!-- <script type="text/javascript" src="js/desktop.js"></script> -->
     <script type="text/javascript">
-        //app.initialize();
+        app.initialize();
     </script>
   </body>
 </html>
