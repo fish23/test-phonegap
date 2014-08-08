@@ -35,5 +35,16 @@ var utils =
 	isNull: function(input)
 	{
 		return (typeof input === "object" && Object.prototype.toString.call(input) !== '[object Null]');
+	},
+
+	getActivePage: function()
+	{
+		return $("body").pagecontainer("getActivePage")[0].id;
+	},
+	changePage: function(page)
+	{
+		$("body").pagecontainer("change", "#"+page);
+		return;
 	}
+	
 }

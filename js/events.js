@@ -21,7 +21,7 @@ var events = {
     	var email = $("#login-email").val();
     	var password = $("#login-password").val();
 
-    	if(utils.isEmpty(email) === false || utils.isEmpty(password) === false)
+    	if(utils.isEmpty(email) === true || utils.isEmpty(password) === true)
     	{
     		navigator.notification.alert("Pro prihlaseni je potreba zadat email a heslo.", function(){return false;}, "Prihlaseni", "Potvrdit");
     		return false;
@@ -32,12 +32,16 @@ var events = {
     		navigator.notification.alert("Pro prihlaseni je potreba aktivni pripojeni k internetu.", function(){return false;}, "Prihlaseni", "Potvrdit");
     		return false;
     	}
-    	
+    	   
 		ajax.get({
-			"cmd": "login",
-			"email": email,
-			"password": password
+            "class": "AppUser",
+			"cmd":   "login",
+			"params": {
+                "email": email,
+                "password": password
+            }
 		}, events.onLoginResponse);
+
 		return true;
     	
     },
