@@ -1,5 +1,6 @@
 <?php
 error_reporting(E_ALL);
+ini_set('display_startup_errors',1);
 ini_set('display_errors', 1);
 
 Class RequestException extends Exception
@@ -23,8 +24,7 @@ Class Request
 
 	public function __construct()
 	{
-file_put_contents('log', $_GET);
-		if(empty($_POST) || empty($_GET)) return;
+		if(empty($_POST) && empty($_GET)) return;
 		
 		if(!empty($_POST))
 		{
@@ -36,6 +36,7 @@ file_put_contents('log', $_GET);
 			$this->type      = self::METHOD_GET;
 			$this->setData($_GET);
 		}
+
 		$this->isRecived = true;
 	}
 
@@ -46,6 +47,7 @@ file_put_contents('log', $_GET);
 		{
 			if(!array_key_exists($key, $data)) throw new RequestException("Invalid request data recived, missing key '" . $key . "'!");
 		}
+		$data[self::DATA_PARAMS] = json_decode($data[self::DATA_PARAMS], true);
 		$this->data = $data;
 	}
 
@@ -133,6 +135,7 @@ Class App
 	private $data;
 	private $class;
 	private $command;
+	private $instance;
 
 	public function __construct()
 	{
@@ -144,12 +147,15 @@ Class App
 	{
 		try
 		{
-			if(!$request->isRecived()) throw new AppException("No data recived!");
+			if(!$this->request->isRecived()) throw new AppException("No valid data recived!");
 
-			$this->data  = $request->getData();
-			$this->checkClass();
-			$this->checkCommand();
-			$this->response->setData($this->class->$this->command($this->data[Request::DATA_PARAMS]));
+			$this->data  = $this->request->getData();
+			$this->createInstance();
+
+			$method = $this->command;
+			$data = $this->instance->$method();
+			$this->response->setData($data);
+			$this->response->send();
 		}
 		catch(ResponseException $e)
 		{
@@ -165,7 +171,7 @@ Class App
 	{
 		$class = $this->data[Request::DATA_CLASS];
 		if(!class_exists($class)) throw new AppException("Class '" . $class . "' not found!");
-		$this->class = new $class();
+		$this->class = $class;
 	}
 
 	private function checkCommand()
@@ -177,6 +183,13 @@ Class App
 		$this->command = $command;
 	}
 
+	private function createInstance()
+	{
+		$this->checkClass();
+		$this->checkCommand();
+		$class = $this->data[Request::DATA_CLASS];
+		$this->instance = new $class($this->data[Request::DATA_PARAMS]);
+	}
 }
 
 abstract Class AbstractAppModule
@@ -192,7 +205,7 @@ abstract Class AbstractAppModule
 
 Class AppUser extends AbstractAppModule
 {
-	const KEY_USER     = "user";
+	const KEY_EMAIL    = "email";
 	const KEY_PASSWORD = "password";
 
 	private $loginDemo = array(
@@ -212,7 +225,7 @@ Class AppUser extends AbstractAppModule
 
 	public function login()
 	{
-		if(!array_key_exists(self::KEY_USER, $this->params) || !array_key_exists(self::KEY_PASSWORD, $this->params))
+		if(!array_key_exists(self::KEY_EMAIL, $this->params) || !array_key_exists(self::KEY_PASSWORD, $this->params))
 		{
 			throw new AppException(__CLASS__ . ":" . __METHOD__ . ": missing input params!");
 		}
@@ -221,6 +234,7 @@ Class AppUser extends AbstractAppModule
 		$data   = $this->loginDemo;
 		$data["offers"] = $offers->get();
 		$data["news"]   = $news->get();
+		return $data;
 	}
 }
 
